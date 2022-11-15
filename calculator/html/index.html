@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+            text-align: center;
+            margin: auto;
+            margin-top: 9%;
+            border: 1px double blue;
+            width: 20%;
+            padding: 1%;
+            border-radius: 6%;
+        }
+
+        .container h1 {
+            text-decoration: underline;
+        }
+
+        .table {
+            border: 1px double blue;
+            padding: 2%;
+            border-radius: 6%;
+            margin: auto;
+            margin-top: 2%;
+        }
+
+        input {
+            font-size: 15px;
+            border-radius: 10%;
+            width: 90%;
+            height: 28px;
+            color: black;
+            border: 3px double rgb(140, 39, 234);
+        }
+
+        button {
+            font-size: 15px;
+            color: black;
+            width: 60px;
+            height: 50px;
+            text-align: center;
+            border-radius: 6%;
+            border: 3px double rgb(10, 70, 17);
+        }
+        .calculator {
+            display: inline-block;
+        }
+        button:hover{
+            background-color: rgb(210, 143, 239);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculator</h1>
+
+        <div class="calculator">
+            <!-- output screen-->
+            <input type="text" name="outputscreen" id="outputscreen" placeholder="0">
+            <!--Table to represent numbers and signs-->
+            <table class="table">
+
+                <tr>
+                    <td>
+                        <button onclick="calculate('C')">
+                            C
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('%')">
+                            %
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="del()">
+                        D
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('/')">
+                            /
+                        </button>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <button onclick="calculate(7)">
+                            7
+                        </button>
+                    </td> 
+                    <td>
+                        <button onclick="calculate(8)">
+                            8
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate(9)">
+                            9
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('*')">
+                            *
+                        </button>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td>
+                        <button onclick="calculate(4)">
+                            4
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate(5)">
+                            5
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate(6)">
+                            6
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('-')">
+                            -
+                        </button>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <button onclick="calculate(1)">
+                            1
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate(2)">
+                            2
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate(3)">
+                            3
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('+')">
+                            +
+                        </button>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <button onclick="calculate(00)">
+                            00
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate(0)">
+                            0
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="calculate('.')">
+                            .
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="equal()" class="equalsign">
+                            =
+                        </button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+let result=document.getElementById('outputscreen');
+let calculate=(number)=>{
+result.value+=number;
+if(number=='C'){
+    result.value=" ";
+}
+}
+let equal=()=>{
+   try{
+    result.value=eval(result.value)
+   } catch(err){
+       alert("enter valid input")
+   }
+}
+function del(){
+    result.value=result.value.slice(0,-1);
+}
+</script>
+</html>
